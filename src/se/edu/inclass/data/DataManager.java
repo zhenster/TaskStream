@@ -67,9 +67,7 @@ public class DataManager {
     private ArrayList<Task> parse(ArrayList<String> dataItems) {
         ArrayList<Task> allTasks = new ArrayList<>();
         for (String line : dataItems) {
-            String taskType = line.substring(0, 2);
-            taskType = taskType.replace("[", "");
-            taskType = taskType.replace("]", "");
+            String taskType = getTaskType(line);
             String taskDescription = getTaskDescription(line);
             switch (taskType) {
             case "T":
@@ -95,5 +93,12 @@ public class DataManager {
     private String getTaskDescription(String line) {
         String taskDescription = line.substring(4);
         return taskDescription;
+    }
+
+    private String getTaskType(String line) {
+        String taskType = line.substring(0, 2);
+        taskType = taskType.replace("[", "");
+        taskType = taskType.replace("]", "");
+        return taskType;
     }
 }
