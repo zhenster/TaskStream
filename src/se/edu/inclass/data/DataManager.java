@@ -7,12 +7,11 @@ import se.edu.inclass.task.ToDo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class DataManager {
     private File dataFile;

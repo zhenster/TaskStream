@@ -6,7 +6,6 @@ import se.edu.inclass.task.Task;
 import se.edu.inclass.task.TaskNameComparator;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class Main {
 
