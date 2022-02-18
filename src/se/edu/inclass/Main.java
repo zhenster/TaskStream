@@ -12,13 +12,14 @@ public class Main {
     private TaskNameComparator taskNameComparator;
 
     public static void main(String[] args) {
-        DataManager dm = new DataManager("./data/data.txt");
+        DataManager dm = new DataManager("./data/data.txt"); // Class is being run from this particular file location
         ArrayList<Task> tasksData = dm.loadData();
 
-        System.out.println("Printing deadlines");
+        printData(tasksData);
+        System.out.println("\nPrinting deadlines");
         printDeadlines(tasksData);
 
-        System.out.println("Total number of deadlines: " + countDeadlines(tasksData));
+        System.out.println("\nTotal number of deadlines: " + countDeadlines(tasksData));
 
     }
 

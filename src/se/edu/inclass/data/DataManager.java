@@ -47,6 +47,7 @@ public class DataManager {
             System.out.println("empty file");
             throw new IOException();
         }
+        // ReadAllLines does all the resource management - reads file and closes it, and returns the data items in an ArrayList
         ArrayList<String> dataItems = (ArrayList) Files.readAllLines(dataFile.toPath(), Charset.defaultCharset());
 
         return dataItems;
@@ -58,7 +59,7 @@ public class DataManager {
             ArrayList<String> dataItems = readFile();
             taskList = parse(dataItems);
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Bad practice - if you catch an error and print the stack trace, you're not really handling the error
         }
         return taskList;
     }
@@ -66,8 +67,8 @@ public class DataManager {
     private ArrayList<Task> parse(ArrayList<String> dataItems) {
         ArrayList<Task> allTasks = new ArrayList<>();
         for (String line : dataItems) {
-            String taskType = getTaskType(line);
-            String taskDescription = getTaskDescription(line);
+            String taskType = getTaskType(line); // SLAP - even though the methods are only one-two lines, it's a good idea to extract them as methods
+            String taskDescription = getTaskDescription(line); // SLAP
             switch (taskType) {
             case "T":
                 ToDo todo = new ToDo(taskDescription);
